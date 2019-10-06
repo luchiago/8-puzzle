@@ -96,7 +96,7 @@ def get_caminho_das_pedras(no):
 def prepara_dic(no, algoritmo, tempo, gerados, maxima, ram):
     dic = {
         'algoritmo': "Algoritmo: " + algoritmo,
-        'tempo': str(round(tempo, 2)) + " s",
+        'tempo': "Tempo: " + str(round(tempo, 2)) + " s",
         'gerados': "Nós gerados: " + str(gerados),
         'profundidade_solucao': "Profundidade da Solução: " + str(get_custo(no)),
         'maxima_profundidade': "Profundiade máxima atingida: " + str(maxima),
