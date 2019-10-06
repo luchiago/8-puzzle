@@ -7,12 +7,12 @@ class Resultado:
         self.raiz.title('Resultado')
 
         self.cont9 = Frame(raiz)
-        self.cont9.pack(side=BOTTOM)
+        self.cont9.pack(side=TOP)
 
         self.cont0 = Frame(raiz)
-        self.cont0.pack(side=RIGHT)
+        self.cont0.pack(side=BOTTOM)
 
-        group = LabelFrame(raiz, text="Tabuleiro", padx=5, pady=5)
+        group = LabelFrame(raiz, text="Tabuleiro", padx=20, pady=20)
         group.pack(padx=20, pady=10)
         self.passos = list(resultado['acoes'])
         self.matriz = inicial
@@ -74,10 +74,11 @@ class Resultado:
         Label(group2, text=resultado['ram']).pack()
         self.prog = Button(self.cont9, text='Próximo passo',
                            padx=2, command=self.movimento)
-        self.prog.pack(pady=10, padx=5, side=RIGHT)
+        self.prog.pack(pady=10, padx=5, side=BOTTOM)
 
     def movimento(self):
         if len(self.passos) == 0:
+            messagebox.showinfo("Fim!", "Terminou os passos")
             return None
         mov = self.passos[0]
         del self.passos[0]

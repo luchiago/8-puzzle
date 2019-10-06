@@ -103,11 +103,13 @@ class Jogo:
         self.mostra_resultado(a_estrela.busca(jogo), tabuleiro)
     
     def mostra_resultado(self, resultado, inicial):
-        if not resultado:
-            messagebox.showinfo("\ Erro!", "Não foi encontrada solução")
+        if resultado is False:
+            messagebox.showinfo("Erro!", "Não foi encontrada solução")
         else:
             nova = Tk()
             Resultado(nova, resultado, inicial)
+            nova.title("Resultado da busca em" + resultado['algoritmo'][10:])
+            nova.geometry("400x400")
             nova.mainloop()
 
 root = Tk()
