@@ -16,6 +16,8 @@ class Resultado:
         group.pack(padx=20, pady=10)
         self.passos = list(resultado['acoes'])
         self.matriz = inicial
+        i, j = helpers.get_posicao_vazio(inicial)
+        self.matriz[i][j] = ' '
 
         self.cont1 = Frame(group)
         self.cont1.pack()
@@ -80,6 +82,8 @@ class Resultado:
         mov = self.passos[0]
         del self.passos[0]
         self.matriz = helpers.proximo(self.matriz, mov)
+        i, j = helpers.get_posicao_vazio(self.matriz)
+        self.matriz[i][j] = ' '
         self.m1.delete(0, END)
         self.m1.insert(0, str(self.matriz[0][0]))
         self.m2.delete(0, END)
