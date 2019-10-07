@@ -80,27 +80,51 @@ class Jogo:
             tabuleiro[2][2] = int(self.e9.get().strip())
         except:
             tabuleiro[2][2] = 0
-        return tabuleiro
+        flag = 0
+        for i in range(3):
+            for j in range(3):
+                if tabuleiro[i][j] == 0:
+                    flag += 1
+                if tabuleiro[i][j] not in range(0, 9):
+                    flag = 2
+                    break
+        if flag > 1:
+            messagebox.showinfo("Erro!", "Estado inicial incorreto")
+            return None
+        else:
+            return tabuleiro
     
     def largura(self):
         tabuleiro = self.get_tabuleiro()
-        jogo = node.No(tabuleiro, "Inicial")
-        self.mostra_resultado(largura.busca(jogo), tabuleiro)
+        if tabuleiro is None:
+            pass
+        else:
+            jogo = node.No(tabuleiro, "Inicial")
+            self.mostra_resultado(largura.busca(jogo), tabuleiro)
 
     def profundidade(self):
         tabuleiro = self.get_tabuleiro()
-        jogo = node.No(tabuleiro, "Inicial")
-        self.mostra_resultado(profundidade.busca(jogo), tabuleiro)
+        if tabuleiro is None:
+            pass
+        else:
+            jogo = node.No(tabuleiro, "Inicial")
+            self.mostra_resultado(profundidade.busca(jogo), tabuleiro)
 
     def gulosa(self):
         tabuleiro = self.get_tabuleiro()
-        jogo = node.No(tabuleiro, "Inicial")
-        self.mostra_resultado(gulosa.busca(jogo), tabuleiro)
+        if tabuleiro is None:
+            pass
+        else:
+            jogo = node.No(tabuleiro, "Inicial")
+            self.mostra_resultado(gulosa.busca(jogo), tabuleiro)
 
     def a_estrela(self):
         tabuleiro = self.get_tabuleiro()
-        jogo = node.No(tabuleiro, "Inicial")
-        self.mostra_resultado(a_estrela.busca(jogo), tabuleiro)
+        if tabuleiro is None:
+            pass
+        else:
+            jogo = node.No(tabuleiro, "Inicial")
+            self.mostra_resultado(a_estrela.busca(jogo), tabuleiro)
     
     def mostra_resultado(self, resultado, inicial):
         if resultado is False:

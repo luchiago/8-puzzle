@@ -66,14 +66,6 @@ def gera_filhos(jogo):
     
     return possibilidades
 
-def get_caminho(no):
-    caminho_das_pedras = []
-    atual = no
-    while atual.pai != None:
-        caminho_das_pedras.append(no.passo)
-        atual = atual.pai
-    
-    return caminho_das_pedras
 
 def get_custo(no):
     custo = len(get_caminho_das_pedras(no))
